@@ -14,14 +14,15 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     environment:
-      TZ: 'America/Chicago'
+      ServerIP: 192.168.0.17
+      TZ: 'America/Vancouver'
       # WEBPASSWORD: 'set a secure password here or it will be random'
     # Volumes store your data between container upgrades
     volumes:
        - './etc-pihole/:/etc/pihole/'
        - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
     # run `touch ./var-log/pihole.log` first unless you like errors
-    # - './var-log/pihole.log:/var/log/pihole.log'
+       - './var-log/pihole.log:/var/log/pihole.log'
     dns:
       - 127.0.0.1
       - 1.1.1.1
